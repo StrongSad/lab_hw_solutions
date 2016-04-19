@@ -50,7 +50,54 @@ app.post('/favorites', function(req, res) {
   });
 });
 
+
+// app.get('favorites/:imdbID/comments', function(req,res) {
+//   //':' means need req.params
+// });
+
+// app.post('favorites/:imdbID/comments', function(req,res) {
+
+// });
+
+app.get('/tags', function(req, res) {
+  db.tag.findAll().then(function(req, res) {
+    res.render('/tags')
+  })
+});
+
+app.get('/favorites/:imdbId/tag', function(req,res) {
+  res.render('tag', {imdbId: req.params.imdbId});
+});
+
+app.post('/favorites/:imdbId/tag', function(req,res) {
+  var tag = req.body;
+
+});
+
 var port = 3000;
 app.listen(port, function() {
   console.log("You're listening to the smooth sounds of port " + port);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
